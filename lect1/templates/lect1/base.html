@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}РЭУ им. Г.В. Плеханова{% endblock %}</title>
+    <!-- Подключаем отдельный файл стилей через Django Static -->
+    <link rel="stylesheet" href="{% static 'lect1/css/style.css' %}">
+</head>
+<body>
+
+    <header class="header-box">
+        <div class="navbar">
+            <div class="logo">РЭУ им. Г.В. Плеханова</div>
+            <ul class="menu">
+                <li><a href="{% url 'university:home' %}">Главная</a></li>
+                <li class="dropdown">
+                    <a href="#">О компании ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{% url 'university:contacts' %}">Контакты</a></li>
+                        <li><a href="{% url 'university:location' %}">Как нас найти</a></li>
+                    </ul>
+                </li>
+                <li><a href="{% url 'university:programs' %}">Направления</a></li>
+                <li><a href="{% url 'university:timetable' %}">Расписание</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="content-area">
+        {% block content %}{% endblock %}
+    </div>
+
+</body>
+</html>

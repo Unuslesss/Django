@@ -1,0 +1,76 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f8;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+header {
+    background-color: #004d40; /* Фирменный цвет РЭУ */
+    padding: 10px 40px;
+}
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.logo {
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+.menu {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.menu li {
+    position: relative;
+}
+.menu a {
+    color: #e0f2f1;
+    text-decoration: none;
+    padding: 10px 15px;
+    display: block;
+    font-weight: bold;
+}
+.menu a:hover {
+    color: white;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+}
+/* Реализация выпадающего списка О компании */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #004d40;
+    list-style: none;
+    padding: 0;
+    min-width: 160px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+.content-area {
+    background-color: white;
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+h2 {
+    color: #004d40;
+}
+ul {
+    padding-left: 20px;
+}
+li {
+    margin-bottom: 8px;
+}
