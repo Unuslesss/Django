@@ -1,35 +1,37 @@
 {% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>{% block title %}РЭУ им. Г.В. Плеханова{% endblock %}</title>
-    <!-- Подключаем отдельный файл стилей через Django Static -->
+    <title>{% block title %}Учебный портал РЭУ им. Г.В. Плеханова{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'lect1/css/style.css' %}">
 </head>
 <body>
-
-    <header class="header-box">
-        <div class="navbar">
-            <div class="logo">РЭУ им. Г.В. Плеханова</div>
-            <ul class="menu">
-                <li><a href="{% url 'university:home' %}">Главная</a></li>
-                <li class="dropdown">
-                    <a href="#">О компании ▾</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="{% url 'university:contacts' %}">Контакты</a></li>
-                        <li><a href="{% url 'university:location' %}">Как нас найти</a></li>
-                    </ul>
-                </li>
-                <li><a href="{% url 'university:programs' %}">Направления</a></li>
-                <li><a href="{% url 'university:timetable' %}">Расписание</a></li>
-            </ul>
-        </div>
+    <header>
+        <ul class="menu">
+            <li><a href="{% url 'university:home' %}">Главная</a></li>
+            <li class="dropdown">
+                <a href="{% url 'university:about' %}">О ВУЗе</a>
+                <ul class="dropdown-menu">
+                    <li><a href="{% url 'university:contacts' %}">Контакты</a></li>
+                    <li><a href="{% url 'university:location' %}">Как нас найти</a></li>
+                </ul>
+            </li>
+            <li><a href="{% url 'university:department_list' %}">Кафедры</a></li>
+            <li><a href="{% url 'university:group_list' %}">Группы</a></li>
+            <li><a href="{% url 'university:discipline_list' %}">Дисциплины</a></li>
+            <li><a href="{% url 'university:teacher_list' %}">Преподаватели</a></li>
+            <li><a href="{% url 'university:student_list' %}">Студенты</a></li>
+        </ul>
     </header>
 
-    <div class="content-area">
-        {% block content %}{% endblock %}
-    </div>
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
 
+    <footer>
+        <p>© 2026 Московский приборостроительный техникум РЭУ им. Г.В. Плеханова</p>
+    </footer>
 </body>
 </html>

@@ -1,0 +1,10 @@
+{% extends 'lect1/base.html' %}
+{% block content %}
+<h1>{% if form.instance.pk %}Редактировать студента{% else %}Добавить нового студента{% endif %}</h1>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Сохранить</button>
+</form>
+<a href="{% url 'university:student_list' %}">Вернуться к списку студентов</a>
+{% endblock %}

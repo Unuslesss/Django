@@ -1,0 +1,11 @@
+{% extends 'lect1/base.html' %}
+{% block content %}
+<h1>{{ teacher.full_name }}</h1>
+<p>Дата рождения: {{ teacher.birth_year }}</p>
+<p>Кафедра: {{ teacher.department }}</p>
+<p>Количество детей: {{ teacher.number_of_children }}</p>
+{% if teacher.photo %}<img src="{{ teacher.photo.url }}" alt="{{ teacher.full_name }}" width="250"><br>{% endif %}
+<a href="{% url 'university:teacher_list' %}">Вернуться к списку преподавателей</a>
+<a href="{% url 'university:teacher_update' teacher.pk %}">Редактировать</a>
+<a href="{% url 'university:teacher_delete' teacher.pk %}">Удалить</a>
+{% endblock %}

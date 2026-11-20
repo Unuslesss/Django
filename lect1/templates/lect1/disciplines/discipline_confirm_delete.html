@@ -1,0 +1,9 @@
+{% extends 'lect1/base.html' %}
+{% block content %}
+<h1>Удалить дисциплину "{{ object.discipline_name }}"?</h1>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Удалить</button>
+</form>
+<a href="{% url 'university:discipline_list' %}">Вернуться к списку дисциплин</a>
+{% endblock %}

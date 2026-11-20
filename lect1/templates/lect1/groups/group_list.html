@@ -1,0 +1,14 @@
+{% extends 'lect1/base.html' %}
+{% block content %}
+<h1>Учебные группы</h1>
+<a href="{% url 'university:group_create' %}">Добавить новую группу</a>
+<ul>
+    {% for group in groups %}
+    <li>
+        <a href="{% url 'university:group_detail' group.pk %}">{{ group.name }} ({{ group.course }} курс)</a>
+        <a href="{% url 'university:group_update' group.pk %}">Редактировать</a>
+        <a href="{% url 'university:group_delete' group.pk %}">Удалить</a>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'lect1/base.html' %}
+{% block content %}
+<h1>Учебные дисциплины</h1>
+<a href="{% url 'university:discipline_create' %}">Добавить новую дисциплину</a>
+<ul>
+    {% for discipline in disciplines %}
+    <li>
+        <a href="{% url 'university:discipline_detail' discipline.pk %}">{{ discipline.discipline_name }}</a>
+        <a href="{% url 'university:discipline_update' discipline.pk %}">Редактировать</a>
+        <a href="{% url 'university:discipline_delete' discipline.pk %}">Удалить</a>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends 'lect1/base.html' %}
+{% block content %}
+<h1>{% if form.instance.pk %}Редактировать дисциплину{% else %}Добавить новую дисциплину{% endif %}</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Сохранить</button>
+</form>
+<a href="{% url 'university:discipline_list' %}">Вернуться к списку дисциплин</a>
+{% endblock %}

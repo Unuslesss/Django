@@ -1,0 +1,10 @@
+{% extends 'lect1/base.html' %}
+{% block content %}
+<h1>{{ student.lastname }} {{ student.firstname }} {{ student.middlename|default:"" }}</h1>
+<p>Год рождения: {{ student.birth_year }} (Возраст: {{ student.age }})</p>
+<p>Учебная группа: {{ student.group }}</p>
+{% if student.photo %}<img src="{{ student.photo.url }}" alt="{{ student.lastname }}" width="250"><br>{% endif %}
+<a href="{% url 'university:student_list' %}">Вернуться к списку студентов</a>
+<a href="{% url 'university:student_update' student.pk %}">Редактировать</a>
+<a href="{% url 'university:student_delete' student.pk %}">Удалить</a>
+{% endblock %}

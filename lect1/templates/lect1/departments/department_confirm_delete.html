@@ -1,0 +1,14 @@
+{% extends 'lect1/base.html' %}
+{% block content %}
+<h1>Кафедры университета</h1>
+<a href="{% url 'university:department_create' %}">Добавить новую кафедру</a>
+<ul>
+    {% for department in departments %}
+    <li>
+        <a href="{% url 'university:department_detail' department.pk %}">{{ department.name }}</a> |
+        <a href="{% url 'university:department_update' department.pk %}">Редактировать</a> |
+        <a href="{% url 'university:department_delete' department.pk %}">Удалить</a>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

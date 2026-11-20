@@ -1,0 +1,15 @@
+{% extends 'lect1/base.html' %}
+{% block content %}
+<h1>Студенты</h1>
+<a href="{% url 'university:student_create' %}">Добавить нового студента</a>
+<ul>
+    {% for student in students %}
+    <li>
+        {% if student.photo %}<img src="{{ student.photo.url }}" alt="{{ student.lastname }}" width="60">{% endif %}
+        <a href="{% url 'university:student_detail' student.pk %}">{{ student.lastname }} {{ student.firstname }} {{ student.middlename|default:"" }}</a>
+        <a href="{% url 'university:student_update' student.pk %}">Редактировать</a>
+        <a href="{% url 'university:student_delete' student.pk %}">Удалить</a>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

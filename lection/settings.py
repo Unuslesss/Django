@@ -76,10 +76,18 @@ WSGI_APPLICATION = 'lection.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
+        'NAME': 'University',
+        'USER': 'postgres',
+        'PASSWORD': '1120',  # Укажите ваш пароль от PostgreSQL
+        'OPTIONS': {
+            'options': '-c search_path=university,public'
+        },
     }
 }
+
 
 
 
@@ -122,6 +130,11 @@ STATIC_URL = 'static/'
 
 # Добавь этот блок, чтобы привязать папку к проекту
 import os
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'lect1/static'),
 ]

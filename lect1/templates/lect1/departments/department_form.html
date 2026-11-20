@@ -1,0 +1,10 @@
+{% extends 'lect1/base.html' %}
+{% block content %}
+<h1>{% if form.instance.pk %}Редактировать кафедру{% else %}Добавить новую кафедру{% endif %}</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Сохранить</button>
+</form>
+<a href="{% url 'university:department_list' %}">Вернуться к списку кафедр</a>
+{% endblock %}
